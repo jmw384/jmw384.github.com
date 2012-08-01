@@ -1,0 +1,21 @@
+auto:        true
+server:      true
+baseurl:    /
+
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+exclude:     ./_scripts
+
+future:      true
+lsi:         false
+pygments:    false
+markdown:    maruku
+permalink:   /:year/:month/:day
+
+maruku:
+  use_tex:    false
+  use_divs:   false
+  png_engine: blahtex
+  png_dir:    images/latex
+  png_url:    /images/latex
