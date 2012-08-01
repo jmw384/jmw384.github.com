@@ -3,22 +3,17 @@ layout: default
 title: jmw
 ---
 
-<div>
-    <aside>
-        <div class='today'>
-            {% assign post = site.posts[0] %}
-            <span class='month'>{{ post.date | date: '%m' }}</span><!--
-            --><span class='day'>{{ post.day }}</span><!--
-            --><span class='year'>{{ post.date | date: '%y' }}</span>
-        </div>
-        {% if site.posts[1] %}
-            <nav class='post-nav'>
-                <a class='previous' href='{{ site.posts[1].url }}'>&laquo;</a>
-            </nav>
-        {% endif %}
-    </aside>
-    <article title="{{ post.meta | xml_escape }}">{{ post.content }}</article>
-</div>
+{% for page in site.posts %}
+  <aside>
+      <div class='date'>
+          <span>{{ page.date | date: '%B %d, %Y' }}</span>
+      </div>
+  </aside>
 
-<footer>
-</footer>
+  <article>
+    <h1><a href='{{ page.url }}'>{{ page.title }}</a></h1>
+    <div class='post-content'>
+      {{ page.content }}
+    </div>
+  </article>
+{% endfor %}

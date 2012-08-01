@@ -3,19 +3,14 @@ layout: default
 ---
 
 <aside>
-    <div class='today'>
-        <span class='month'>{{ page.date | date: '%m' }}</span><!--
-        --><span class='day'>{{ page.day }}</span><!--
-        --><span class='year'>{{ page.date | date: '%y' }}</span>
+    <div class='date'>
+        <span>{{ page.date | date: '%B %d, %Y' }}</span>
     </div>
-    <nav class='post-nav'>
-    {% if page.previous.url %}
-        <a class='previous' href="{{page.previous.url}}" title="Previous Post">&laquo;</a>
-    {% endif %}
-    {% if page.next.url %}
-        <a class='next' href="{{page.next.url}}" title="Next Post">&raquo;</a>
-    {% endif %}
-    </nav>
 </aside>
 
-<article title="{{ page.meta | xml_escape }}">{{ content }}</article>
+<article>
+  <h1>{{ page.title }}</h1>
+  <div class='post-content'>
+    {{ content }}
+  </div>
+</article>
